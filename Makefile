@@ -2,6 +2,10 @@ CC       = gcc
 CFLAGS   = -Wall -Wextra -Werror -Iinclude
 LDFLAGS  = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
+ifeq ($(BUILD_TYPE), RELEASE)
+CFLAGS += -DRELEASE_BUILD
+endif
+
 SRC_DIR   = src
 DATA_DIR  = data
 BUILD_DIR = build/snake-game
