@@ -8,6 +8,8 @@ https://github.com/DrShahinstein/c-snake-game/assets/81323808/005fed72-1ef5-4db2
 
 ## Build
 
+See [releases](https://github.com/DrShahinstein/c-snake-game/releases/tag/LTS) to directly get executable binaries.
+
 ### Linux
 
 ```
