@@ -1,0 +1,14 @@
+#ifndef WINDOW_H
+#define WINDOW_H
+
+#define WINDOW_TITLE "Snake Game"
+#define COLS 32
+#define ROWS 24
+#define SCREEN_WIDTH 960.0
+#define SCREEN_HEIGHT 720.0
+#define HALF_SCREEN_W SCREEN_WIDTH / 2
+#define HALF_SCREEN_H SCREEN_HEIGHT / 2
+#define CELL_WIDTH SCREEN_WIDTH / COLS
+#define CELL_HEIGHT SCREEN_HEIGHT / ROWS
+
+#endif
