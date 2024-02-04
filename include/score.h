@@ -8,7 +8,7 @@
 #define SCORE_POSY 8
 #define SCORE_FONTSIZE 20
 
-#define IO_WARNING_1 "Error while initializing score\n"
+#define IO_WARNING_1 "ERROR: Error while initializing score\n"
 #define IO_WARNING_2 "WARNING: Error while reading score\n"
 #define IO_WARNING_3 "WARNING: Error while writing score\n"
 
