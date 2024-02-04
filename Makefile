@@ -1,6 +1,13 @@
+UNAME   := $(shell uname)
 CC       = gcc
 CFLAGS   = -Wall -Wextra -Werror -Iinclude
-LDFLAGS  = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+LDFLAGS  = -lraylib -O1
+
+ifeq ($(UNAME), Linux)
+	LDFLAGS += -lGL -lm -lpthread -ldl -lrt -lX11
+else ifeq ($(OS), Windows_NT)
+	LDFLAGS += -lopengl32 -lgdi32 -lwinmm
+endif
 
 ifeq ($(BUILD_TYPE), RELEASE)
 CFLAGS += -DRELEASE_BUILD
