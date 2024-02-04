@@ -82,6 +82,8 @@ int main(void) {
     EndDrawing();
   }
 
+  save_highest_score(snake.score);
+
   UnloadTexture(apple.texture);
   UnloadSound(apple.eating_sound);
 
