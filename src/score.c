@@ -1,6 +1,25 @@
 #include "score.h"
 #include "raylib.h"
 #include <stdio.h>
+#include <sys/stat.h>
+
+#ifdef _WIN32
+#include <direct.h>
+#endif
+
+void ensure_dir_exists(const char *dir) {
+#ifdef _WIN32
+  if (_mkdir(dir) == 0) {
+    printf("INFO: Directory %s created\n", dir);
+  }
+#else
+  struct stat st = {0};
+  if (stat(dir, &st) == -1) {
+    mkdir(dir, 0700);
+    printf("INFO: Directory %s created\n", dir);
+  }
+#endif
+}
 
 void init_score(void) {
   FILE *f = fopen(SCORE_TXT_PATH, "a+");
@@ -16,7 +35,23 @@ void init_score(void) {
     fclose(f);
     printf("INFO: %s initialized\n", SCORE_TXT_PATH);
   } else {
-    fprintf(stderr, IO_WARNING_1);
+    ensure_dir_exists(SCORE_DIR_PATH);
+
+    f = fopen(SCORE_TXT_PATH, "a+");
+
+    if (f != NULL) {
+      fseek(f, 0, SEEK_END);
+      long size = ftell(f);
+
+      if (size == 0 || (size == 1 && fgetc(f) == '\n')) {
+        fprintf(f, "0");
+      }
+
+      fclose(f);
+      printf("INFO: %s initialized\n", SCORE_TXT_PATH);
+    } else {
+      fprintf(stderr, IO_WARNING_1);
+    }
   }
 }
 
