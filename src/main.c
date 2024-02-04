@@ -12,9 +12,9 @@ static void draw_overlay(Color color) {
 }
 
 int main(void) {
-  init_score();                               // To load highest score properly
   InitAudioDevice();                          // To load sounds properly
   ChangeDirectory(GetApplicationDirectory()); // To load assets properly
+  init_score();                               // To load highest score properly
 
   GameState state = PLAYING;
 
