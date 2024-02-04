@@ -3,6 +3,7 @@
 
 #include "working_dir.h"
 
+#define SCORE_DIR_PATH WDIR "data/"
 #define SCORE_TXT_PATH WDIR "data/highest_score.txt"
 #define SCORE_POSX 10
 #define SCORE_POSY 8
